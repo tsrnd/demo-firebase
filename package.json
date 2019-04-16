@@ -1,0 +1,11 @@
+{
+  "name": "demo-firebase",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd functions && npm run build",
+    "build:prod": "cd functions && npm run build:prod",
+    "serve": "npm run build && firebase serve",
+    "deploy": "npm run build:prod && firebase deploy"
+  }
+}
