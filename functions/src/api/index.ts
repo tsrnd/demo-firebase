@@ -4,7 +4,7 @@ import * as routes from './routes';
 
 const app = express();
 app.use((req, res, next) => {
-  console.log(`req.path=${req.path}`);
+  console.info(`req.path=${req.path}`);
   return next();
 });
 
