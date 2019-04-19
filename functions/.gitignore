@@ -1,6 +1,6 @@
-## Compiled JavaScript files
-**/*.js
-**/*.js.map
+## Compiled files
+dist/
+src/admin/html/
 
 # Typescript v1 declaration files
 typings/

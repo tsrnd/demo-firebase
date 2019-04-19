@@ -17,6 +17,21 @@
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <script src="./firebase-init.js"></script>
   <script>
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+    firebase.auth().onAuthStateChanged(function (user) {
+      console.log(JSON.stringify(user));
+      if (user) {
+        user.getIdToken()
+          .then(function (token) {
+            console.log(`token=${token}`);
+            document.cookie = '__session=' + token + ';max-age=3600;path=/';
+          }).catch(function (error) {
+            console.log('Cannot get IdToken');
+          });
+      } else {
+        document.cookie = '__session=;';
+      }
+    });
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     ui.start('#firebaseui-auth-container', {
       signInOptions: [

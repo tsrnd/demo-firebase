@@ -12,6 +12,14 @@ This project includes:
 
 ## Development
 
+### Prebuild
+
+Clone the example files and correct your Firebase project information:
+- `.firebaserc`
+- `functions/src-fe/admin/src/login/firebase-init.js`
+
+### Build
+
 To start building this project, you first need to install Firebase CLI.
 
 ```bash
@@ -25,6 +33,8 @@ npm run build
 ```
 
 ## Deployment
+
+### Deploy
 
 There're two `firebase` commands should be replaced with `npm run` scripts:
 
