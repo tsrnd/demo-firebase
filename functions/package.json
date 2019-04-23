@@ -4,22 +4,13 @@
     "node": "8"
   },
   "scripts": {
-    "postinstall": "cd src-fe/admin && npm install",
     "lint": "tslint --project tsconfig.json",
-    "build:fe:admin": "cd src-fe/admin && npm run build",
-    "build:fe:admin:prod": "cd src-fe/admin && npm run build:prod",
-    "build:fe": "npm run build:fe:admin",
-    "build:fe:prod": "npm run build:fe:admin:prod",
-    "build:be": "rm -rf ./dist && tsc && npm run copy",
-    "build": "npm run build:fe && npm run build:be",
-    "build:prod": "npm run build:fe:prod && npm run build:be",
-    "serve": "npm run build && firebase serve --only functions",
-    "shell": "npm run build && firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log",
-    "copy:admin:html": "rm -rf ./dist/admin/html && cp -r ./src/admin/html ./dist/admin/html",
-    "copy": "npm run copy:admin:html"
+    "copy:web": "mkdir -p ./dist && cp -r ../web/dist/* ./dist/",
+    "copy:views": "mkdir -p ./dist/http/admin/views/ && cp -r ./src/http/admin/views/* ./dist/http/admin/views/",
+    "build": "npm run copy:web && tsc && npm run copy:views",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "deploy": "firebase deploy --only functions"
   },
   "main": "dist/index.js",
   "dependencies": {
@@ -29,8 +20,10 @@
     "express": "^4.16.4",
     "firebase-admin": "^7.0.0",
     "firebase-functions": "^2.2.0",
+    "gentelella": "^1.4.0",
     "lodash": "^4.17.11",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pug": "^2.0.3"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.1",

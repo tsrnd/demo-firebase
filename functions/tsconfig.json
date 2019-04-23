@@ -10,6 +10,6 @@
   },
   "compileOnSave": true,
   "include": [
-    "src", "src-fe/admin/src/assets/login"
+    "src", "src/http/admin/views"
   ]
 }

@@ -6,7 +6,7 @@
   "functions": {
   },
   "hosting": {
-    "public": "public",
+    "public": "./web/dist/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -22,8 +22,8 @@
         "function": "api"
       },
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/**",
+        "function": "web"
       }
     ]
   },
