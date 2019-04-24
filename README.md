@@ -4,11 +4,9 @@ Demo Firebase
 This project includes:
 - Firebase Hosting:
   + Static web app for normal user at `/`
-- Firebase Functions:
+- Firebase HTTP Functions:
   + API app for normal user at `/api`
   + Admin app for admin user at `/admin`
-    - AngularJS for frontend at `/admin`
-    - ExpressJS for backend (page router, api) at `/admin/api`
 
 ## Development
 
@@ -16,7 +14,6 @@ This project includes:
 
 Clone the example files and correct your Firebase project information:
 - `.firebaserc`
-- `functions/src-fe/admin/src/login/firebase-init.js`
 
 ### Build
 
@@ -24,6 +21,12 @@ To start building this project, you first need to install Firebase CLI.
 
 ```bash
 npm install -g firebase-tools
+```
+
+Install dependencies.
+
+```bash
+npm install
 ```
 
 To build this project, just:
@@ -34,15 +37,16 @@ npm run build
 
 ## Deployment
 
-### Deploy
+### Serve Local
 
-There're two `firebase` commands should be replaced with `npm run` scripts:
+```bash
+npm run serve
+```
 
-| firebase command | npm run script |
-|--|--|
-| firebase serve | npm run serve |
-| firebase deploy | npm run deploy |
+### Deploy to Firebase
 
-This replacement makes sure the project is built well before serve in local environment or deploy in production environment.
+```bash
+npm run deploy
+```
 
 >This project uses NodeJS v8.15.1 for both development & production runtime.
